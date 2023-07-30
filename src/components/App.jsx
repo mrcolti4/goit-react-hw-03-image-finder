@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { Component } from 'react';
 import { getImageByQuery } from 'js/api/pixabay';
 
@@ -72,6 +73,12 @@ export class App extends Component {
     const { data, query, isLoading, modalData } = this.state;
     return (
       <>
+        <Helmet>
+          <meta
+            http-equiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+          />
+        </Helmet>
         <Searchbar handleImageQuery={this.handleImageQuery} />
         <ImageNotFound
           query={query}
